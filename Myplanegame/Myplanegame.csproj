@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2A9F16F9-58A2-48C0-B3E0-EF46FB4E00C4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Myplanegame</RootNamespace>
+    <AssemblyName>Myplanegame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EnemyBullet.cs" />
+    <Compile Include="Fighter.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyBullet.cs" />
+    <Compile Include="MyPlane.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bloodbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bomb5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bul02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bul02_60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bul02_120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bul02_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bul02_150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en_bul01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fighterGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fighterRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fighterYellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgH1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgH2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgH3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgH4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgH5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHeadGirl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHeadQQ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHeadSheep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHead匿名.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgHead兔头.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeRedTail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeRedTail1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\planeRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shotgun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bombsound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BOMB2.WAV" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
