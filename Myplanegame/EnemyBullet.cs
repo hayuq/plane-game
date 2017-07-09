@@ -91,13 +91,13 @@ namespace Myplanegame
             {
                 EnbulRect = new Rectangle(enbullist[i].Eloc.X, enbullist[i].Eloc.Y, 6, 6);
                 Rectangle MyplaneRect = new Rectangle(MyPlane.x,MyPlane.y, 40, 50);
-                if (EnbulRect.IntersectsWith(MyplaneRect))
+                if (EnbulRect.IntersectsWith(MyplaneRect)) //我方飞机被敌方子弹击中
                 {
                     enbullist.Remove(enbullist[i]);
                     MyPlane.health -= 1;
                     if (MyPlane.score > 0)
                     {
-                        MyPlane.score -= 2;
+                        MyPlane.score -= 1;
                     }
                 }
             }

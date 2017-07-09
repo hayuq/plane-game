@@ -23,14 +23,14 @@ namespace Myplanegame
         int shot_y = 10;
         int blood_y = 50;
         private Image[] bgrounds;        //设置多张背景图片，每次运行程序随机产生背景图片
-        int Index = 0;                           //背景图片索引
-        Image headimage = Resource.imgHeadSheep;     //角色头像图片
-        Image bm = Resource.bomb4;          //爆炸效果图片
+        int index = 0;                           //背景图片索引
+        Image avatar = Resource.imgHeadSheep;     //角色头像图片
+        Image boomImg = Resource.bomb4;          //爆炸效果图片
         Image shotImg = Resource.shotgun;
         Image bloodImg = Resource.bloodbox;
 
         bool isDropGun = false;      //是否产生shotgun的标志
-        bool Isdropbox = false;       //是否产生bloodbox的标志
+        bool isDropBox = false;       //是否产生bloodbox的标志
 
         private void Form1_Load(object sender, EventArgs e)//窗体加载事件
         {
@@ -41,7 +41,7 @@ namespace Myplanegame
         {
             InitializeComponent();
             this.Size = new Size(420, 630);//让窗体与图片一样大
-            //this.DoubleBuffered = true;
+            //this.DoubleBuffered = true; //双缓冲区
         }
          ///<summary>
         /// 初始化背景，随机生成背景图片
@@ -50,7 +50,7 @@ namespace Myplanegame
         {
             bgrounds = new Image[4];
             Random rd = new Random();
-            Index = rd.Next(0, 4);//产生0-3的随机数，表示不同背景
+            index = rd.Next(0, 4);//产生0-3的随机数，表示不同背景
 
             bgrounds[0] = Resource.background1;//从资源获取图片
             bgrounds[1] = Resource.background2;
@@ -84,13 +84,10 @@ namespace Myplanegame
             {
                 isDropGun = true;
             }
-            if (isDropGun && !MyPlane.isGetGun)
+            if (isDropGun && !MyPlane.isGetGun && sgRect.IntersectsWith(mpRect)) //已经得到shotgun
             {
-                if (sgRect.IntersectsWith(mpRect))
-                {
-                    MyPlane.isGetGun = true;
-                    shot_y = -100;
-                }
+                MyPlane.isGetGun = true;
+                shot_y = -100;
             }
             shot_y += 5;
             if (shot_y > 950)
@@ -108,9 +105,9 @@ namespace Myplanegame
 
             if (new Random().Next(0, 100) == 0)        //随机产生bloodbox
             {
-                Isdropbox = true;
+                isDropBox = true;
             }
-            if (Isdropbox && !MyPlane.isGetBlood)
+            if (isDropBox && !MyPlane.isGetBlood)
             {
                 if (bbRect.IntersectsWith(mpRect))
                 {
@@ -127,17 +124,17 @@ namespace Myplanegame
         private void DrawGame(Graphics g)                    //绘制界面上所有图像，避免闪烁
         {
             this.BackMove(g);               
-            g.DrawImage(bgrounds[Index], pix_x, pix_y, 420, 630);           
-            g.DrawImage(bgrounds[Index], pix_x, pix_y - 630, 420, 630);       //绘制背景
+            g.DrawImage(bgrounds[index], pix_x, pix_y, 420, 630);           
+            g.DrawImage(bgrounds[index], pix_x, pix_y - 630, 420, 630);       //绘制背景
 
-            g.DrawImage(headimage, 10, 10);                                            //绘制角色头像
+            g.DrawImage(avatar, 10, 10);                                            //绘制角色头像
             g.DrawRectangle(new Pen(Color.Black), new Rectangle(10, 100, 100, 10));     //绘制血条矩形
             g.FillRectangle(Brushes.Red, 10, 101, MyPlane.health, 9);                   //填充血条矩形
 
             g.DrawRectangle(new Pen(Color.Blue), new Rectangle(10, 120, 100, 10));
             g.FillRectangle(Brushes.Green, 11, 121, MyPlane.score, 9);
-            g.DrawString("玩家：xjc", new Font("宋体", 9, FontStyle.Bold), Brushes.Yellow, new Point(10, 140));      //显示玩家
-            g.DrawString("得分：" + MyPlane.score, new Font("宋体", 9, FontStyle.Bold), Brushes.Yellow, new Point(10, 160));      //显示分数
+            g.DrawString("Player：xjc", new Font("宋体", 9, FontStyle.Bold), Brushes.Yellow, new Point(10, 140));      //显示玩家
+            g.DrawString("Score：" + MyPlane.score, new Font("宋体", 9, FontStyle.Bold), Brushes.Yellow, new Point(10, 160));      //显示分数
 
             MyPlane.MyPlaneShow(g);
             MyPlane.MyPlaneMove();
@@ -165,7 +162,7 @@ namespace Myplanegame
                 g.DrawImage(shotImg, new Point(0, -500));
             }
 
-            if (Isdropbox && !MyPlane.isGetBlood)         //判断是否产生bloodbox,并绘制
+            if (isDropBox && !MyPlane.isGetBlood)         //判断是否产生bloodbox,并绘制
             {
                 g.DrawImage(bloodImg, 350, blood_y);
             }
@@ -192,7 +189,7 @@ namespace Myplanegame
         /// </summary>
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.Invalidate();      //使当前窗口无效，系统自动调用OnPaint()函数重绘
+            this.Invalidate();  //使当前窗口无效，系统自动调用OnPaint()函数重绘
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -216,7 +213,7 @@ namespace Myplanegame
             {
                 if (Fighter.fighters[j].flag)
                 {
-                    g.DrawImage(bm, Fighter.fighters[j].GetLoc());
+                    g.DrawImage(boomImg, Fighter.fighters[j].GetLoc());
                     SoundPlayer music = new SoundPlayer(Resource.BOMB21);
                     music.Play(); 
                     Fighter.fighters.Remove(Fighter.fighters[j]);

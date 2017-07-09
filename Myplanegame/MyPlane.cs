@@ -11,13 +11,16 @@ namespace Myplanegame
         public static int x = 180;
         public static int y = 530;//坐标
         public static int health = 100; //血量
+        
         private const int PLANE_OFFSET = 12;//移动速度
+        
         public static Image myPlaneImg=Resource.plane;//我方飞机图片
         static List<Keys> keys = new List<Keys>();//键盘键列表，用于控制飞机移动
         static Image gameOver = Resource.gameover;
+
         public static bool isGetGun = false;//是否得到shotgun的标志
         public static bool isGetBlood = false;//是否得到bloodbox的标志
-        public static int score = 100;      //得分
+        public static int score = 0;      //得分
 
         /// <summary>
         /// 显示我方飞机
@@ -29,7 +32,7 @@ namespace Myplanegame
             {
                 g.DrawImage(myPlaneImg, x, y);
             }
-            else if (health < 0 || score < 0)
+            else if (health <= 0 || score <= 0)
             {
                 g.DrawImage(myPlaneImg, 0, -300);
                 g.DrawImage(gameOver, 10, 260);
