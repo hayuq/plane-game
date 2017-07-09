@@ -27,9 +27,9 @@ namespace Myplanegame
         {
             _x = x;//横坐标
             fi = i;
-            redImg = Resource1.fighterRed;
-            greenImg = Resource1.fighterGreen;
-            yellowImg = Resource1.fighterYellow;
+            redImg = Resource.fighterRed;
+            greenImg = Resource.fighterGreen;
+            yellowImg = Resource.fighterYellow;
             switch (fi)
             {
                 case 0:

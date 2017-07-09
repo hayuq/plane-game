@@ -18,7 +18,7 @@ namespace Myplanegame
         private const double PI = Math.PI;
         public static List<MyBullet> mybulList = new List<MyBullet>();//子弹对象集合
 
-        static Bitmap bm = new Bitmap(Resource1.bomb4);//爆炸图片
+        static Bitmap bm = new Bitmap(Resource.bomb4);//爆炸图片
         public bool isHit = false;//碰撞的标志
         public MyBullet()
         { 
@@ -32,26 +32,26 @@ namespace Myplanegame
             switch (Angle)
             {
                 case 0:
-                    bulImg = Resource1.bul02;
+                    bulImg = Resource.bul02;
                     y -= 17;
                     break;
                 case 30:
-                    bulImg = Resource1.bul02_30;
+                    bulImg = Resource.bul02_30;
                     x += 12;
                     y -= 12;
                     break;
                 case 60:
-                    bulImg = Resource1.bul02_60;
+                    bulImg = Resource.bul02_60;
                     x += 2;
                     y -= 17;
                     break;
                 case 120:
-                    bulImg = Resource1.bul02_120;
+                    bulImg = Resource.bul02_120;
                     x -= 35;
                     y -= 12;
                     break;
                 case 150:
-                    bulImg = Resource1.bul02_150;
+                    bulImg = Resource.bul02_150;
                     x -= 20;
                     y -= 12;
                     break;

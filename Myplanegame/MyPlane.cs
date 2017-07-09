@@ -12,9 +12,9 @@ namespace Myplanegame
         public static int y = 530;//坐标
         public static int health = 100; //血量
         private const int PLANE_OFFSET = 12;//移动速度
-        public static Image myPlaneImg=Resource1.plane;//我方飞机图片
+        public static Image myPlaneImg=Resource.plane;//我方飞机图片
         static List<Keys> keys = new List<Keys>();//键盘键列表，用于控制飞机移动
-        static Image gameOver = Resource1.gameover;
+        static Image gameOver = Resource.gameover;
         public static bool isGetGun = false;//是否得到shotgun的标志
         public static bool isGetBlood = false;//是否得到bloodbox的标志
         public static int score = 100;      //得分
@@ -78,14 +78,14 @@ namespace Myplanegame
         {
             if (IsKeyDown(Keys.A))
             {
-                myPlaneImg = Resource1.planeLeft;
+                myPlaneImg = Resource.planeLeft;
                 if (x < 5)
                     x = 5;
                 x -= PLANE_OFFSET;
             }
             if (IsKeyDown(Keys.D))
             {
-                myPlaneImg = Resource1.planeRight;
+                myPlaneImg = Resource.planeRight;
                 if (x > 370)
                     x = 370;
                 x += PLANE_OFFSET;

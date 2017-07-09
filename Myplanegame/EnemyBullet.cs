@@ -14,7 +14,7 @@ namespace Myplanegame
         private int distance;  
         
         static List<EnemyBullet> enbullist = new List<EnemyBullet>();//敌机子弹列表
-        Image enbul=Resource1.en_bul01;
+        Image enbul=Resource.en_bul01;
         Point eloc;
         double k;     //斜率
         static Rectangle EnbulRect;

@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 namespace Myplanegame
 {
-    public partial class Form1 : Form     //继承类
+    public partial class GameForm : Form     //继承类
     {
         private const int PLANE_OFFSET = 2;       //设置每次定时器触发时图片发生偏移的速度
         
@@ -24,10 +24,10 @@ namespace Myplanegame
         int blood_y = 50;
         private Image[] bgrounds;        //设置多张背景图片，每次运行程序随机产生背景图片
         int Index = 0;                           //背景图片索引
-        Image headimage = Resource1.imgHeadSheep;     //角色头像图片
-        Image bm = Resource1.bomb4;          //爆炸效果图片
-        Image shotImg = Resource1.shotgun;
-        Image bloodImg = Resource1.bloodbox;
+        Image headimage = Resource.imgHeadSheep;     //角色头像图片
+        Image bm = Resource.bomb4;          //爆炸效果图片
+        Image shotImg = Resource.shotgun;
+        Image bloodImg = Resource.bloodbox;
 
         bool isDropGun = false;      //是否产生shotgun的标志
         bool Isdropbox = false;       //是否产生bloodbox的标志
@@ -37,7 +37,7 @@ namespace Myplanegame
             InitBackground();              //初始化背景
         }
 
-        public Form1()
+        public GameForm()
         {
             InitializeComponent();
             this.Size = new Size(420, 630);//让窗体与图片一样大
@@ -52,10 +52,10 @@ namespace Myplanegame
             Random rd = new Random();
             Index = rd.Next(0, 4);//产生0-3的随机数，表示不同背景
 
-            bgrounds[0] = Resource1.background1;//从资源获取图片
-            bgrounds[1] = Resource1.background2;
-            bgrounds[2] = Resource1.background3;
-            bgrounds[3] = Resource1.background4;
+            bgrounds[0] = Resource.background1;//从资源获取图片
+            bgrounds[1] = Resource.background2;
+            bgrounds[2] = Resource.background3;
+            bgrounds[3] = Resource.background4;
         }
         
         /// <summary>
@@ -203,7 +203,7 @@ namespace Myplanegame
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         { 
             MyPlane.Keyup(e.KeyCode);
-            MyPlane.myPlaneImg = Resource1.plane;
+            MyPlane.myPlaneImg = Resource.plane;
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace Myplanegame
                 if (Fighter.fighters[j].flag)
                 {
                     g.DrawImage(bm, Fighter.fighters[j].GetLoc());
-                    SoundPlayer music = new SoundPlayer(Resource1.BOMB21);
+                    SoundPlayer music = new SoundPlayer(Resource.BOMB21);
                     music.Play(); 
                     Fighter.fighters.Remove(Fighter.fighters[j]);
                 }
