@@ -26,4 +26,9 @@ PlaneGame
 |--- Resource.resx 资源文件
 ```
 # 游戏效果图
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0712/220417_b1fb0f0c_1430177.png "在这里输入图片标题")![输入图片说明](https://git.oschina.net/uploads/images/2017/0713/001410_58b4cb93_1430177.png "在这里输入图片标题")![输入图片说明](https://git.oschina.net/uploads/images/2017/0712/220444_24aa7716_1430177.png "在这里输入图片标题")
+![输入图片说明](screenshot/1.png "运行效果图1")
+![输入图片说明](screenshot/3.png "运行效果图2")
+![输入图片说明](screenshot/3.png "运行效果图3")
+
+镜像仓库：
+[码云](https://gitee.com/hayuq/plane-game)

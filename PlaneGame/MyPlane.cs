@@ -20,6 +20,7 @@ namespace Myplanegame
 
         public static bool isGetGun = false;//是否得到shotgun的标志
         public static bool isGetBlood = false;//是否得到bloodbox的标志
+        public static bool isGameOver = false; //游戏是否结束的标志
         public static int score = 0;      //得分
 
         /// <summary>
@@ -34,10 +35,11 @@ namespace Myplanegame
             }
             else if (health <= 0 || score <= 0)
             {
+                isGameOver = true;
                 g.DrawImage(myPlaneImg, 0, -300);
                 g.DrawImage(gameOver, 10, 260);
             }
-            else if (isGetBlood && health < 90)
+            else if (isGetBlood && health <= 90)
             {
                 health += 10;
             }
@@ -79,6 +81,10 @@ namespace Myplanegame
         /// </summary>
         public static void MyPlaneMove()
         {
+            if(isGameOver)
+            {
+                return;
+            }
             if (IsKeyDown(Keys.A))
             {
                 myPlaneImg = Resource.planeLeft;

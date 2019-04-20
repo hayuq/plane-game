@@ -65,7 +65,7 @@ namespace Myplanegame
         /// </summary>
         public static void ProduceMybul()
         {
-            if (MyPlane.IsKeyDown(Keys.J))
+            if (!MyPlane.isGameOver && MyPlane.IsKeyDown(Keys.J))
             {
                 mybulList.Add(new MyBullet(MyPlane.x + 13, MyPlane.y - 10, 0));
                 if (MyPlane.isGetGun)
@@ -131,14 +131,14 @@ namespace Myplanegame
          public static void IsHitEnemy(Graphics g)
         {
             Rectangle myPlaneRect = new Rectangle(MyPlane.x, MyPlane.y, MyPlane.myPlaneImg.Width, MyPlane.myPlaneImg.Height);    //包住myplane的Rectangle
-            
-            //g.DrawRectangle(new Pen(Color.Red), MyPlaneRect);
+
+            //g.DrawRectangle(new Pen(Color.Red), myPlaneRect);
             for(int i = 0; i < mybulList.Count; i++)
               for (int j = 0; j < Fighter.fighters.Count; j++)
               { 
                   Rectangle mybulRect = new Rectangle(mybulList[i].x, mybulList[i].y, 8, 10);
                   Rectangle fighterRect = new Rectangle(Fighter.fighters[j]._x, Fighter.fighters[j]._y, 65, 45);
-                  //g.DrawRectangle(new Pen(Color.Black), FighterRect);
+                  //g.DrawRectangle(new Pen(Color.Black), fighterRect);
                   if (mybulRect.IntersectsWith(fighterRect))   //我方子弹击中敌机，敌机爆炸
                   {
                      mybulList.Remove(mybulList[i]);
@@ -148,7 +148,7 @@ namespace Myplanegame
                          MyPlane.score += 1;
                      }
                   }
-                  if (myPlaneRect.IntersectsWith(fighterRect))  //我方飞机撞上敌机，敌机爆炸
+                  else if (myPlaneRect.IntersectsWith(fighterRect))  //我方飞机撞上敌机，敌机爆炸
                   {
                       Fighter.fighters[j].flag = true;
                       if (MyPlane.score < 100)
