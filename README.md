@@ -27,7 +27,7 @@ PlaneGame
 ```
 # 游戏效果图
 ![输入图片说明](screenshot/1.png "运行效果图1")
-![输入图片说明](screenshot/3.png "运行效果图2")
+![输入图片说明](screenshot/2.png "运行效果图2")
 ![输入图片说明](screenshot/3.png "运行效果图3")
 
 镜像仓库：
